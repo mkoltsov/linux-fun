@@ -62,4 +62,9 @@ create arc
 tar cvf archive.tar file1 file2 ...
 unpack it 
 tar xvf archive.tar
+
 zcat file.tar.gz | tar xvf -
+
+echo blah blah > /dev/null
+ls -l 
+udevadm info --query=all --name=/dev/sda
