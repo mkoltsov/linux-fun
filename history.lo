@@ -68,3 +68,10 @@ zcat file.tar.gz | tar xvf -
 echo blah blah > /dev/null
 ls -l 
 udevadm info --query=all --name=/dev/sda
+dd if=/dev/zero of=new_file bs=1024 count=1
+mount
+ cat /proc/devices
+ lsscsi
+ mknod /dev/sda1 b 8 2
+ udevadm 
+ udevadm monitor --kernel --subsystem-match=scsi
