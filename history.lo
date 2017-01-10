@@ -75,3 +75,6 @@ mount
  mknod /dev/sda1 b 8 2
  udevadm 
  udevadm monitor --kernel --subsystem-match=scsi
+ parted -l
+ blockdev --rereadpt /dev/sdf
+ cat /sys/block/sdf/sdf2/start
