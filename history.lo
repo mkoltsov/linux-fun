@@ -93,3 +93,4 @@ mount
   free
   mkswap dev
   swapon dev
+  ls -i
