@@ -1,0 +1,11 @@
+[Unit]
+Description=test 1
+
+in a different file
+
+[Unit]
+Description=test 2
+Wants=test1.target
+
+systemctl start test2.target
+systemctl status test1.target test2.target
