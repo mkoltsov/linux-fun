@@ -90,3 +90,6 @@ mount
   mount -a
   fsck /dev/sdb1
   e2fsck –fy /dev/disk_device
+  free
+  mkswap dev
+  swapon dev
