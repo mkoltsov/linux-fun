@@ -1,0 +1,32 @@
+You can redirect the standard error if you like. For example, to send standard output to f and standard error to e, use the 2> syntax, like this:
+ $ ls /fffffffff > f 2> e
+
+run it in the background
+gunzip file.gz &
+fg
+
+Mode
+Meaning
+Used For
+644
+user: read/write; group, other: read
+files
+600
+user: read/write; group, other: none
+files
+755
+user: read/write/execute; group, other: read/execute
+directories, programs
+700
+user: read/write/execute; group, other: none
+directories, programs
+711
+user: read/write/execute; group, other: execute
+directories
+
+create arc
+tar cvf archive.tar file1 file2 ...
+unpack it 
+tar xvf archive.tar
+
+zcat file.tar.gz | tar xvf -

@@ -1,0 +1,16 @@
+#SYSTEMD
+ systemctl show -p type unit
+ systemctl -p UnitPath show
+systemctl list-units
+systemctl status media.mount
+journalctl _SYSTEMD_UNIT=unit
+systemctl list-jobs
+systemctl reload unit
+systemctl daemon-reload
+systemctl enable
+systemctl stop
+systemctl disable
+shutdown -r +10
+mkdir /tmp/myinitrd
+$ cd /tmp/myinitrd
+$ zcat /boot/initrd.img-3.2.0-34 | cpio -i --no-absolute-filenames

@@ -1,0 +1,10 @@
+echo *
+echo *.m?
+grep ie /usr/share/dict/words | less
+diff file1 file2
+file get-pip.py
+find dir -name file -print
+head -5 /etc/passwd
+tail /etc/passwd
+sort -n
+sort -r

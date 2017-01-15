@@ -1,0 +1,3 @@
+echo blah blah > /dev/null
+ls -l 
+udevadm info --query=all --name=/dev/sda

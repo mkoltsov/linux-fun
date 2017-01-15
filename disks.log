@@ -1,0 +1,28 @@
+dd if=/dev/zero of=new_file bs=1024 count=1
+mount
+ cat /proc/devices
+ lsscsi
+ mknod /dev/sda1 b 8 2
+ udevadm 
+ udevadm monitor --kernel --subsystem-match=scsi
+ parted -l
+ blockdev --rereadpt /dev/sdf
+ cat /sys/block/sdf/sdf2/start
+ mkfs -t ext4 /dev/sdf2
+ ls -l /sbin/mkfs.*
+ mount
+  mount -t type device mountpoint
+  mount -t ext4 /dev/sdf2 /home/extraё
+ umount
+ blkid
+  mount UUID=a9011c2b-1c03-4288-b3fe-8ba961ab0898 /home/extra
+ mount -n -o remount / 
+  mount -a
+  fsck /dev/sdb1
+  e2fsck –fy /dev/disk_device
+  free
+  mkswap dev
+  swapon dev
+  ls -i
+dmesg
+cat /proc/cmdline
