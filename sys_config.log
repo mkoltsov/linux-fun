@@ -1,3 +1,17 @@
 ls -F /etc
 cat /etc/rsyslog.conf 	
- logger -p daemon.info something bad just happened
+ logger -p daemon.info something bad just happened 	
+ ps ao args | grep getty 	
+ date
+  hwclock --hctosys --utc
+   date +%s
+   TZ=US/Central date
+    at 22:30
+at> myjob
+
+End the input with CTRL-D
+atq 	
+atrm
+ps -eo pid,euser,ruser,comm
+ cat /etc/pam.d/passwd
+ grep password.*unix /etc/pam.d/*
