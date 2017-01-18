@@ -1,0 +1,30 @@
+You can send commands to top with keystrokes. These are some of the most important commands:
+Spacebar
+Updates the display immediately.
+M
+Sorts by current resident memory usage.
+T
+Sorts by total (cumulative) CPU usage.
+P
+Sorts by current CPU usage (the default).
+u
+Displays only one user’s processes.
+f
+Selects different statistics to display.
+?
+Displays a usage summary for all top commands.
+
+lsof
+
+lsof /usr
+
+ lsof -p 1
+  strace touch 1.txt
+  strace -o crummyd_strace -ff crummyd
+ltrace
+
+#check all multithreaded apps  
+ps m
+ps m -o pid,tid,command
+top -p processID
+/usr/bin/time ls
