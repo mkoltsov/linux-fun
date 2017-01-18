@@ -28,3 +28,17 @@ ps m
 ps m -o pid,tid,command
 top -p processID
 /usr/bin/time ls
+ps -l
+renice 20 pid
+uptime
+/proc/meminfo
+ /usr/bin/time cal > /dev/null
+ If you’d rather see the page faults of processes as they’re running, use top or ps. When running top, use f to change the displayed fields and u to display the number of major page faults. (The results will show up in a new, nFLT column. You won’t see the minor page faults.)
+  ps -o pid,min_flt,maj_flt 20365
+
+  vmstat 2
+  iostat -p ALL
+  iotop
+  ionice
+   pidstat -p 1329 1
+   cat /etc/security/limits.conf 
