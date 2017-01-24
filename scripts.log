@@ -1,0 +1,177 @@
+Individual Arguments: $1, $2
+Number of Arguments: $#
+All Arguments: $@
+Script Name: $0
+Process ID: $$
+Exit Code: $? //he $? variable holds the exit code of the last command that the shell executed
+
+#!/bin/sh
+if [ $1 = hi ]; then
+   echo 'The first argument was "hi"'
+else
+   echo -n 'The first argument was not "hi" -- '
+   echo It was '"'$1'"'
+fi
+
+if [ "$1" = hi ]; then
+if [ x"$1" = x"hi" ]; then
+
+#!/bin/sh
+if grep -q daemon /etc/passwd; then
+    echo The daemon user is in the passwd file.
+else
+    echo There is a big problem. daemon is not in the passwd file.
+fi
+
+#!/bin/sh
+if [ "$1" = "hi" ]; then
+   echo 'The first argument was "hi"'
+elif [ "$2" = "bye" ]; then
+   echo 'The second argument was "bye"'
+else
+   echo -n 'The first argument was not "hi" and the second was not "bye"-- '
+   echo They were '"'$1'"' and '"'$2'"'
+fi
+
+#!/bin/sh
+if [ "$1" = hi ] || [ "$1" = bye ]; then
+    echo 'The first argument was "'$1'"'
+fi
+
+for filename in *; do
+    if [ -f $filename ]; then
+        ls -l $filename
+        file $filename
+    else
+       echo $filename is not a regular file.
+    fi
+done
+
+Table 11-1. File Type Operators
+Operator
+Tests For
+-f
+Regular file
+-d
+Directory
+-h
+Symbolic link
+-b
+Block device
+-c
+Character device
+-p
+Named pipe
+-S
+Socket
+
+Table 11-2. File Permissions Operators
+Operator
+Operator
+-r
+Readable
+-w
+Writable
+-x
+Executable
+-u
+Setuid
+-g
+Setgid
+-k
+“Sticky”
+
+String Tests
+You’ve seen the binary string operator = that returns true if its operands are equal. The != operator returns true if its operands are not equal. And there are two unary string operations:
+-z Returns true if its argument is empty ([ -z "" ] returns 0)
+-n Returns true if its argument is not empty ([ -n "" ] returns 1)
+
+Table 11-3. Arithmetic Comparison Operators
+Operator
+Returns True When the First Argument Is . . . the Second
+-eq
+Equal to
+-ne
+Not equal to
+-lt
+Less than
+-gt
+Greater than
+-le
+Less than or equal to
+-ge
+Greater than or equal to
+
+#!/bin/sh
+case $1 in
+    bye)
+        echo Fine, bye.
+        ;;
+    hi|hello)
+        echo Nice to see you.
+        ;;
+    what*)
+        echo Whatever.
+        ;;
+    *)
+        echo 'Huh?'
+        ;;
+esac
+
+#!/bin/sh
+for str in one two three four; do
+    echo $str
+done
+
+#!/bin/sh
+FILE=/tmp/whiletest.$$;
+echo firstline > $FILE
+while tail -10 $FILE | grep -q firstline; do
+    # add lines to $FILE until tail -10 $FILE no longer prints "firstline"
+    echo -n Number of lines in $FILE:' '
+    wc -l $FILE | awk '{print $1}'
+    echo newline >> $FILE
+done
+
+rm -f $FILE
+
+#!/bin/sh
+TMPFILE1=$(mktemp /tmp/im1.XXXXXX)
+TMPFILE2=$(mktemp /tmp/im2.XXXXXX)
+
+cat /proc/interrupts > $TMPFILE1
+sleep 2
+cat /proc/interrupts > $TMPFILE2
+diff $TMPFILE1 $TMPFILE2
+rm -f $TMPFILE1 $TMPFILE2
+
+
+#!/bin/sh
+DATE=$(date)
+cat <<EOF
+Date: $DATE
+
+The output above is from the Unix date command.
+It's not a very interesting command.
+EOF
+
+basename example.html .html
+basename /usr/local/bin/example
+
+#!/bin/sh
+for file in *.gif; do
+    # exit if there are no files
+    if [ ! -f $file ]; then
+        exit
+    fi
+    b=$(basename $file .gif)
+    echo Converting $b.gif to $b.png...
+    giftopnm $b.gif | pnmtopng > $b.png
+done
+
+ls -l | awk '{print $5}'s
+sed 's/:/%/' /etc/passwd
+find . -name '*.gif' -print | xargs file
+find . -name '*.gif' -print0 | xargs -0 file
+find . -name '*.gif' -exec file {} \;
+To use a subshell, put the commands to be executed by the subshell in parentheses. For example, the following line executes the command uglyprogram in uglydir and leaves the original shell intact:
