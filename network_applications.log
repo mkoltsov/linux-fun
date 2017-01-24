@@ -1,0 +1,26 @@
+telnet www.wikipedia.org 80
+GET / HTTP/1.0
+ curl --trace-ascii trace_file http://www.wikipedia.org/
+ /etc/ inetd.conf
+ nc 8.8.8.8 -p 1111
+ lsof -i
+ Use the -n option to disable name resolution:
+ lsof -n -i
+ lsof -i:port
+ lsof -iprotocol@host:port
+ lsof -iTCP:80
+ to show only the processes listening on TCP ports
+ lsof -iTCP -sTCP:LISTEN	
+tcpdump
+tcpdump tcp
+tcpdump udp or port 80
+To open a TCP connection to a port with netcat
+netcat host port
+To listen on a particular port, run
+ $ netcat -l -p port_number
+ to do port scan
+ nmap 10.1.2.2
+ nmap google.com
+ rpcinfo -p localhost
+open sockets 
+lsof -U
