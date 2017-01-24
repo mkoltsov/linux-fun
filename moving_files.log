@@ -1,0 +1,3 @@
+tar cBvf - directory | ssh remote_host tar xBvpf -
+rsync file1 file2 ... host:
+rsync -a --delete dir host:destination_dir
