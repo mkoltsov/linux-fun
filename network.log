@@ -32,3 +32,16 @@ To manually set the IP address and netmask for a kernel network interface, youâ€
   /etc/hosts
   /etc/resolv.conf
   /etc/nsswitch.conf
+  netstat -nt
+  /etc/services
+   /var/run/dhclient.pid and its lease information in /var/state/dhclient.leases
+   iptables -L
+   iptables -P FORWARD DROP
+   iptables -A INPUT -s 192.168.34.63 -j DROP
+   iptables -A INPUT -s 192.168.34.0/24 -p tcp --destination-port 25 -j DROP
+   iptables -A INPUT -s 192.168.34.37 -j ACCEPT
+   arp -n
+   iw dev wlan0 scan
+   iw dev wlan0 link
+iw wlan0 connect network_name
+/etc/wpa_supplicant.conf
